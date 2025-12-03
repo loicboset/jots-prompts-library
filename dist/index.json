@@ -1,12 +1,599 @@
 {
   "prompts": [
     {
+      "title": "Can you note a way you have evolved professionally over the past few months?",
+      "tags": [
+        "growth",
+        "professional-development"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How can you turn a recent idea or insight into an experiment?",
+      "tags": [
+        "experimentation",
+        "learning"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you approach disagreement in a way that strengthens trust?",
+      "tags": [
+        "collaboration",
+        "trust"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you balance humility with confidence in your work?",
+      "tags": [
+        "confidence",
+        "humility"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you connect your day-to-day actions to a larger purpose?",
+      "tags": [
+        "purpose",
+        "meaning"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you decide what is worth pursuing and what can wait?",
+      "tags": [
+        "priorities",
+        "decision-making"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you define a \"good outcome\" beyond personal success?",
+      "tags": [
+        "outcomes",
+        "success"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you distinguish between what's urgent and what's truly important?",
+      "tags": [
+        "priorities",
+        "urgency"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you evaluate whether a decision was good — aside from its outcome?",
+      "tags": [
+        "decision-making",
+        "evaluation"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you evaluate whether your work is making a meaningful difference?",
+      "tags": [
+        "impact",
+        "meaning"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you help others think more clearly or work more effectively?",
+      "tags": [
+        "collaboration",
+        "helping"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you know when to push through versus when to pause?",
+      "tags": [
+        "decision-making",
+        "balance"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you maintain your focus and energy throughout your workday?",
+      "tags": [
+        "energy",
+        "focus"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you make sure that what you experience or try actually turns into learning?",
+      "tags": [
+        "learning",
+        "reflection"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you notice early signs of fatigue or overload?",
+      "tags": [
+        "fatigue",
+        "self-care"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you recognize that your energy or focus is running low, and what usually restores it?",
+      "tags": [
+        "energy",
+        "recovery"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you remind yourself of your competence when doubt appears?",
+      "tags": [
+        "confidence",
+        "self-awareness"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you remind yourself why the work matters when progress feels slow?",
+      "tags": [
+        "motivation",
+        "meaning"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you simplify complex choices without oversimplifying reality?",
+      "tags": [
+        "decision-making",
+        "simplicity"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you track your evolution as a professional beyond metrics or output?",
+      "tags": [
+        "growth",
+        "tracking"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you turn small wins into lasting improvement?",
+      "tags": [
+        "improvement",
+        "growth"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you typically approach decisions when the right answer isn't obvious?",
+      "tags": [
+        "decision-making",
+        "uncertainty"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you typically recognize that you're avoiding something important?",
+      "tags": [
+        "avoidance",
+        "self-awareness"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "How do you usually become aware of your own patterns of thinking or reacting while working?",
+      "tags": [
+        "self-awareness",
+        "reflection"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "If I strip away everything non-essential, what remains as the real problem?",
+      "tags": [
+        "problem-solving",
+        "clarity"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What allows you to keep going when a task or goal demands sustained effort?",
+      "tags": [
+        "persistence",
+        "effort"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What aspect of your work feels unclear at the moment, and what would greater clarity look like?",
+      "tags": [
+        "clarity",
+        "understanding"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What assumption am I making that, if false, would change everything?",
+      "tags": [
+        "assumptions",
+        "critical-thinking"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What boundaries protect your attention and recovery time?",
+      "tags": [
+        "boundaries",
+        "focus"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What boundary could you set to protect a block of focused time?",
+      "tags": [
+        "boundaries",
+        "time-management"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What conditions help a group you're in reach its best thinking?",
+      "tags": [
+        "collaboration",
+        "thinking"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What could you remove from your workflow to regain focus and clarity?",
+      "tags": [
+        "focus",
+        "clarity"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What did you recently discover or realize that could make your future work easier or more effective?",
+      "tags": [
+        "learning",
+        "discovery"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What do you believe makes collaboration effective and rewarding?",
+      "tags": [
+        "collaboration",
+        "teamwork"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What do you do when you sense confusion or uncertainty about your work or direction?",
+      "tags": [
+        "uncertainty",
+        "clarity"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What does \"acting confidently\" look like for you — regardless of how you feel?",
+      "tags": [
+        "confidence",
+        "behavior"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What does professional growth mean to you, and how do you recognize it in yourself?",
+      "tags": [
+        "growth",
+        "professional-development"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What does professional success look like to you?",
+      "tags": [
+        "success",
+        "professional-development"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What experience recently reminded you that you're capable — even if only for a moment?",
+      "tags": [
+        "confidence",
+        "capability"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What feedback do you tend to resist, and why?",
+      "tags": [
+        "feedback",
+        "resistance"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What feels most important to accomplish right now, and what tells you that you're moving closer to it?",
+      "tags": [
+        "priorities",
+        "progress"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What habit supports consistency more than motivation?",
+      "tags": [
+        "habits",
+        "consistency"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What helps you direct your attention to what truly matters in your work?",
+      "tags": [
+        "focus",
+        "priorities"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What helps you notice when a decision is being driven by bias or emotion?",
+      "tags": [
+        "decision-making",
+        "bias"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What helps you recover motivation after a setback or period of stagnation?",
+      "tags": [
+        "motivation",
+        "recovery"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What helps you trust your abilities when facing something uncertain or challenging?",
+      "tags": [
+        "confidence",
+        "trust"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What inner signal tells you that you're not working in alignment with your best self?",
+      "tags": [
+        "alignment",
+        "self-awareness"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What is the single clearest question I need to answer about my current situation?",
+      "tags": [
+        "clarity",
+        "questions"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What kind of preparation or ritual boosts your sense of readiness?",
+      "tags": [
+        "preparation",
+        "readiness"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What makes you a valuable teammate — and how can you lean into that more often?",
+      "tags": [
+        "collaboration",
+        "value"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What outcome are your current actions really leading toward?",
+      "tags": [
+        "outcomes",
+        "actions"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What part of your recent work had a positive effect on others or on the outcome, even in a small way?",
+      "tags": [
+        "impact",
+        "contribution"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What pattern connects what you've been learning across projects or topics?",
+      "tags": [
+        "learning",
+        "patterns"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What principle or rule-of-thumb guides you when data is incomplete?",
+      "tags": [
+        "decision-making",
+        "uncertainty"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What recent challenge stretched your skills in a useful way?",
+      "tags": [
+        "growth",
+        "challenges"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What routine helps you reset your mind between tasks?",
+      "tags": [
+        "routines",
+        "recovery"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What signal tells you it's time to pause and reset before productivity drops?",
+      "tags": [
+        "productivity",
+        "recovery"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What situations tend to reveal the most about your strengths and blind spots?",
+      "tags": [
+        "strengths",
+        "self-awareness"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What small daily action contributes most to your mental clarity?",
+      "tags": [
+        "clarity",
+        "mental-health"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What small improvement could make your contribution more visible or useful?",
+      "tags": [
+        "improvement",
+        "visibility"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What value do you want your work to create for others or for the organization?",
+      "tags": [
+        "value",
+        "impact"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What would \"enough progress\" look like right now?",
+      "tags": [
+        "progress",
+        "goals"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What would an objective observer say is the biggest ambiguity here?",
+      "tags": [
+        "clarity",
+        "ambiguity"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What would make this week feel meaningfully productive?",
+      "tags": [
+        "productivity",
+        "meaning"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What's one capability you want to develop, and what first move supports it?",
+      "tags": [
+        "growth",
+        "development"
+      ],
+      "author": "@loicboset"
+    },
+    {
       "title": "What's one thing you avoided this week?",
       "tags": [
         "obstacles"
       ],
       "author": "@loicboset"
+    },
+    {
+      "title": "What's the best use of your next hour of undistracted work?",
+      "tags": [
+        "productivity",
+        "focus"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "What's the smallest skill you could practice briefly each day to improve?",
+      "tags": [
+        "skills",
+        "practice"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "When did collaboration feel effortless recently, and what conditions made that possible?",
+      "tags": [
+        "collaboration",
+        "teamwork"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "When during your work do you notice your attention is strongest, and what seems to make that possible?",
+      "tags": [
+        "focus",
+        "attention"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "When progress feels slow, what helps you keep moving forward — or return to momentum?",
+      "tags": [
+        "momentum",
+        "persistence"
+      ],
+      "author": "@loicboset"
+    },
+    {
+      "title": "Who could you ask one precise question to accelerate your understanding?",
+      "tags": [
+        "learning",
+        "questions"
+      ],
+      "author": "@loicboset"
     }
   ],
-  "templates": []
+  "templates": [
+    {
+      "title": "Weekly Reflection",
+      "prompts": [
+        "What went well this week?",
+        "What progress are you most proud of?",
+        "What felt difficult or unclear?",
+        "How did you handle setbacks?",
+        "What did you learn about your work or yourself?",
+        "What should you take into next week?",
+        "What should you focus on next week?",
+        "What would make the biggest impact?"
+      ],
+      "tags": [
+        "growth",
+        "obstacles"
+      ],
+      "author": "@loicboset"
+    }
+  ]
 }
