@@ -2,7 +2,10 @@
   "prompts": [
     {
       "title": "What's one thing you avoided this week?",
-      "tags": ["growth", "obstacles"]
+      "tags": [
+        "obstacles"
+      ],
+      "author": "@loicboset"
     }
   ],
   "templates": []
