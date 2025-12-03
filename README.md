@@ -65,7 +65,6 @@ What's one thing you avoided this week?
 
 ```
 ---
-title: "Weekly Reflection Template"
 tags: ["growth", "obstacles"]
 author: "@your_github_username"
 ---
