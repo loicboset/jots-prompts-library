@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prompts Library</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 16px 40px;
+        color: #111827;
+        background: #f9fafb;
+      }
+
+      h1 {
+        margin-bottom: 0.25rem;
+      }
+
+      p.description {
+        margin-top: 0;
+        color: #6b7280;
+      }
+
+      code {
+        background: #f3f4f6;
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 24px 0 16px;
+        align-items: center;
+      }
+
+      .controls input[type="search"],
+      .controls select {
+        border-radius: 999px;
+        border: 1px solid #d1d5db;
+        padding: 8px 12px;
+        font-size: 14px;
+        background: white;
+        outline: none;
+      }
+
+      .controls input[type="search"]:focus,
+      .controls select:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 0 1px #4f46e5;
+      }
+
+      .tabs {
+        display: inline-flex;
+        padding: 4px;
+        border-radius: 999px;
+        background: #e5e7eb;
+        margin-bottom: 16px;
+      }
+
+      .tab-button {
+        border: none;
+        background: transparent;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        cursor: pointer;
+        color: #4b5563;
+        transition: background 0.12s ease, color 0.12s ease;
+      }
+
+      .tab-button.active {
+        background: white;
+        color: #111827;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+      }
+
+      .tab-panel {
+        display: none;
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      .item {
+        margin-bottom: 14px;
+        padding: 12px 14px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        background: white;
+      }
+
+      .item-title {
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .tags {
+        margin-top: 4px;
+        font-size: 12px;
+        color: #6b7280;
+      }
+
+      .template-prompts {
+        margin-top: 8px;
+        padding-left: 1.25rem;
+        font-size: 14px;
+        color: #374151;
+      }
+
+      .meta {
+        margin-top: 4px;
+        font-size: 12px;
+        color: #9ca3af;
+      }
+
+      .empty-state {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #6b7280;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Prompts Library</h1>
+    <p class="description">
+      Loaded from <code>dist/index.json</code> on the
+      <code>main</code> branch.
+    </p>
+
+    <div class="controls">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search titles (current tab)…"
+        aria-label="Search"
+      />
+      <select id="tagSelect" aria-label="Filter by tag">
+        <option value="">All tags</option>
+      </select>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button
+        class="tab-button active"
+        data-tab="prompts"
+        role="tab"
+        aria-selected="true"
+        aria-controls="promptsTab"
+      >
+        Prompts
+      </button>
+      <button
+        class="tab-button"
+        data-tab="templates"
+        role="tab"
+        aria-selected="false"
+        aria-controls="templatesTab"
+      >
+        Reflection Templates
+      </button>
+    </div>
+
+    <div id="tab-panels">
+      <div
+        id="promptsTab"
+        class="tab-panel active"
+        role="tabpanel"
+        aria-labelledby="prompts-tab"
+      >
+        <div id="promptsList"></div>
+      </div>
+      <div
+        id="templatesTab"
+        class="tab-panel"
+        role="tabpanel"
+        aria-labelledby="templates-tab"
+      >
+        <div id="templatesList"></div>
+      </div>
+    </div>
+
+    <script>
+      const DATA_URL =
+        "https://raw.githubusercontent.com/loicboset/jots-prompts-library/main/dist/index.json";
+
+      const searchInput = document.getElementById("searchInput");
+      const tagSelect = document.getElementById("tagSelect");
+      const promptsList = document.getElementById("promptsList");
+      const templatesList = document.getElementById("templatesList");
+
+      let prompts = [];
+      let templates = [];
+
+      function getActiveTab() {
+        const activeButton = document.querySelector(".tab-button.active");
+        return activeButton ? activeButton.dataset.tab : "prompts";
+      }
+
+      function setActiveTab(tabName) {
+        document
+          .querySelectorAll(".tab-button")
+          .forEach((btn) => btn.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-panel")
+          .forEach((panel) => panel.classList.remove("active"));
+
+        const button = document.querySelector(
+          '.tab-button[data-tab="' + tabName + '"]'
+        );
+        const panel =
+          tabName === "prompts"
+            ? document.getElementById("promptsTab")
+            : document.getElementById("templatesTab");
+
+        if (button && panel) {
+          button.classList.add("active");
+          panel.classList.add("active");
+          button.setAttribute("aria-selected", "true");
+        }
+      }
+
+      function render() {
+        const query = searchInput.value.trim().toLowerCase();
+        const selectedTag = tagSelect.value;
+        const activeTab = getActiveTab();
+
+        // Prompts: search against title and tags
+        const filteredPrompts = prompts.filter((p) => {
+          const matchesTag =
+            !selectedTag || (p.tags && p.tags.includes(selectedTag));
+
+          const titleMatch = p.title.toLowerCase().includes(query);
+          const tagMatch =
+            query &&
+            p.tags &&
+            p.tags.some((t) => t.toLowerCase().includes(query));
+
+          const matchesQuery = !query || titleMatch || tagMatch;
+
+          return matchesTag && matchesQuery;
+        });
+
+        // Templates: search only against template title (not underlying prompts)
+        const filteredTemplates = templates.filter((t) => {
+          const matchesTag =
+            !selectedTag || (t.tags && t.tags.includes(selectedTag));
+
+          const titleMatch = t.title.toLowerCase().includes(query);
+          const matchesQuery = !query || titleMatch;
+
+          return matchesTag && matchesQuery;
+        });
+
+        if (activeTab === "prompts") {
+          promptsList.innerHTML =
+            filteredPrompts.length === 0
+              ? '<div class="empty-state">No prompts match your filters.</div>'
+              : filteredPrompts
+                  .map(
+                    (p) => `
+              <div class="item">
+                <div class="item-title">${p.title}</div>
+                ${
+                  p.tags && p.tags.length
+                    ? `<div class="tags">#${p.tags.join(" #")}</div>`
+                    : ""
+                }
+                ${
+                  p.author
+                    ? `<div class="meta">Author: <span>${p.author}</span></div>`
+                    : ""
+                }
+              </div>
+            `
+                  )
+                  .join("");
+        } else {
+          templatesList.innerHTML =
+            filteredTemplates.length === 0
+              ? '<div class="empty-state">No templates match your filters.</div>'
+              : filteredTemplates
+                  .map(
+                    (t) => `
+              <div class="item">
+                <div class="item-title">${t.title}</div>
+                ${
+                  t.tags && t.tags.length
+                    ? `<div class="tags">#${t.tags.join(" #")}</div>`
+                    : ""
+                }
+                ${
+                  t.prompts && t.prompts.length
+                    ? `
+                        <ul class="template-prompts">
+                          ${t.prompts
+                            .map((line) => `<li>${line}</li>`)
+                            .join("")}
+                        </ul>
+                      `
+                    : ""
+                }
+                ${
+                  t.author
+                    ? `<div class="meta">Author: <span>${t.author}</span></div>`
+                    : ""
+                }
+              </div>
+            `
+                  )
+                  .join("");
+        }
+      }
+
+      function populateTags() {
+        const tagSet = new Set();
+        prompts.forEach((p) => (p.tags || []).forEach((t) => tagSet.add(t)));
+        templates.forEach((t) => (t.tags || []).forEach((tag) => tagSet.add(tag)));
+
+        const existing = tagSelect.value;
+        tagSelect.innerHTML = '<option value="">All tags</option>';
+
+        Array.from(tagSet)
+          .sort((a, b) => a.localeCompare(b))
+          .forEach((tag) => {
+            const opt = document.createElement("option");
+            opt.value = tag;
+            opt.textContent = tag;
+            tagSelect.appendChild(opt);
+          });
+
+        if (existing && tagSet.has(existing)) {
+          tagSelect.value = existing;
+        }
+      }
+
+      async function load() {
+        const res = await fetch(DATA_URL);
+        const data = await res.json();
+
+        prompts = data.prompts || [];
+        templates = data.templates || [];
+
+        populateTags();
+        render();
+      }
+
+      document.querySelectorAll(".tab-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const tab = button.dataset.tab;
+          setActiveTab(tab);
+          render();
+        });
+      });
+
+      searchInput.addEventListener("input", render);
+      tagSelect.addEventListener("change", render);
+
+      load();
+    </script>
+  </body>
+</html>
